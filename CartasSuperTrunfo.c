@@ -3,7 +3,9 @@
 int main() {
     int populacao, pTuristicos, cidade;
     char nome[30], estado[2];
-    float area, PIB;
+    float area, PIB, densidade, perCapta;
+
+    
 
     printf("Digite o nome da cidade, sem espacos (ex: SaoJose): \n");
     scanf("%s", nome);
@@ -26,11 +28,16 @@ int main() {
     printf("Digite o PIB: \n");
     scanf("%f", &PIB);
 
+    densidade = populacao/area;
+    perCapta = PIB/populacao;
+
     printf("%s - %s%d \n", nome, estado, cidade);
     printf("População: %d \n", populacao);
     printf("Área: %f \n", area);
     printf("PIB: %f \n", PIB);
     printf("Pontos Turísticos: %d \n", pTuristicos);
+    printf("Densidade: %.2f \n", densidade);
+    printf("Pib per Capta: %.2f \n", perCapta);
 
     return 0;
 }
