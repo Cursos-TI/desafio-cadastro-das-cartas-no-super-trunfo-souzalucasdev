@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int populacaoA, pTuristicosA, cidadeA, populacaoB, pTuristicosB, cidadeB,resultado;
+    int populacaoA, pTuristicosA, cidadeA, populacaoB, pTuristicosB, cidadeB,resultado, escolhaJogador;
     char nomeA[30], estadoA[2], nomeB[30], estadoB[2];
     float areaA, PIBA, densidadeA, perCaptaA, superPoderA, areaB, PIBB, densidadeB, perCaptaB, superPoderB;
 
@@ -20,8 +20,8 @@ int main() {
     printf("Digite a população: \n");
     scanf("%d", &populacaoA);
 
-    // printf("Digite quantos pontos turisticos a cidade tem: \n");
-    // scanf("%d", &pTuristicosA);
+    printf("Digite quantos pontos turisticos a cidade tem: \n");
+    scanf("%d", &pTuristicosA);
 
     // printf("Digite a area: \n");
     // scanf("%f", &areaA);
@@ -47,8 +47,8 @@ int main() {
     printf("Digite a população: \n");
     scanf("%d", &populacaoB);
 
-    // printf("Digite quantos pontos turisticos a cidade tem: \n");
-    // scanf("%d", &pTuristicosB);
+    printf("Digite quantos pontos turisticos a cidade tem: \n");
+    scanf("%d", &pTuristicosB);
 
     // printf("Digite a area: \n");
     // scanf("%f", &areaB);
@@ -102,11 +102,47 @@ int main() {
 
     //IMPLEMENTAÇÃO IF-ELSE:
 
-    if (populacaoA > populacaoB) {
-        printf("A Populacao de %s é maior que a de %s.\n", nomeA, nomeB);
-    } else {
-        printf("A populacao de %s é maior que a de %s. \n", nomeB, nomeA);
-    }
+    // if (populacaoA > populacaoB) {
+    //     printf("A Populacao de %s é maior que a de %s.\n", nomeA, nomeB);
+    // } else {
+    //     printf("A populacao de %s é maior que a de %s. \n", nomeB, nomeA);
+    // }
+
+    //COMPARAÇÃO DE CARTAS COM ESCOLHA DO ATRIBUTO VIA SWITCH CASE
+    printf("Escolha um atributo para comparar: \n");
+    printf("1. Populacao \n");
+    printf("2. Pontos Turisticos \n");
+    printf("Escolha um atributo para comparar: %d", escolhaJogador);
+    scanf("%d", &escolhaJogador);
+
+    switch(escolhaJogador){
+        case 1:
+            if(populacaoA > populacaoB){
+                printf("*** A carta de %s venceu! ***\n", nomeA);
+            } else if(populacaoA < populacaoB){
+                printf("*** A carta de %s venceu! ***\n", nomeB);
+            } else {
+                printf("*** Houve um empate! ***\n");
+            }
+            break;
+        case 2:
+            if(pTuristicosA > pTuristicosB){
+                printf("*** A carta de %s venceu! ***\n", nomeA);
+            } else if(pTuristicosA < pTuristicosB){
+                printf("*** A carta de %s venceu! ***\n", nomeB);
+            } else {
+                printf("*** Houve um empate! ***\n");
+            }
+            break;
+        default:
+        printf("A opção escolhida é inválida.");
+        break;
+        
+    };
+
+
+
+
 
 
 
