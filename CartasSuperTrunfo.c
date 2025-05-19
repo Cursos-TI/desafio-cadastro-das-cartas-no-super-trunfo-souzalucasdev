@@ -1,150 +1,205 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-    int populacaoA, pTuristicosA, cidadeA, populacaoB, pTuristicosB, cidadeB,resultado, escolhaJogador;
-    char nomeA[30], estadoA[2], nomeB[30], estadoB[2];
-    float areaA, PIBA, densidadeA, perCaptaA, superPoderA, areaB, PIBB, densidadeB, perCaptaB, superPoderB;
+    int populacaoA, pTuristicosA, cidadeA, populacaoB, pTuristicosB, cidadeB, resultado, escolhaJogador, primeiroAttComp, segundoAttComp, valor1A, valor1B;
+    char nomeA[30], estadoA[2], nomeB[30], estadoB[2], primeiraEscolha[30], segundaEscolha[30], vencedor1[30], vencedor2[30], vencedorGeral[30];
+    float areaA, PIBA, densidadeA, perCaptaA, superPoderA, areaB, PIBB, densidadeB, perCaptaB, superPoderB, resultadoA, resultadoB, valor2A, valor2B;
 
-    
-    printf("Dados da carta A \n");
+    //CARTA A
+    strcpy(nomeA, "SaoJose");
+    strcpy(estadoA, "A");
+    populacaoA = 260000;
+    pTuristicosA = 30;
+    cidadeA = 01;
+    areaA = 150;
+    PIBA = 13000000000;
+    densidadeA = populacaoA/areaA;
+    perCaptaA = PIBA/populacaoA;
+    superPoderA = (float)populacaoA + areaA + PIBA + (1/densidadeA) + (float)pTuristicosA + perCaptaA;
 
-    printf("Digite o nome da cidade, sem espacos (ex: SaoJose): \n");
-    scanf("%s", nomeA);
-
-    // printf("Digite o estado (de A a H): \n");
-    // scanf("%s", &estadoA);
-
-    // printf("Digite o codigo da cidade de 01 a 04: \n");
-    // scanf("%d", &cidadeA);
-
-    printf("Digite a população: \n");
-    scanf("%d", &populacaoA);
-
-    printf("Digite quantos pontos turisticos a cidade tem: \n");
-    scanf("%d", &pTuristicosA);
-
-    // printf("Digite a area: \n");
-    // scanf("%f", &areaA);
-
-    // printf("Digite o PIB: \n");
-    // scanf("%f", &PIBA);
-
-    // densidadeA = populacaoA/areaA;
-    // perCaptaA = PIBA/populacaoA;
-    // superPoderA = (float)populacaoA + areaA + PIBA + (1/densidadeA) + (float)pTuristicosA + perCaptaA;
-
-    printf("Dados da carta B \n");
-
-    printf("Digite o nome da cidade, sem espacos (ex: SaoJose): \n");
-    scanf("%s", nomeB);
-
-    // printf("Digite o estado (de A a H): \n");
-    // scanf("%s", &estadoB);
-
-    // printf("Digite o codigo da cidade de 01 a 04: \n");
-    // scanf("%d", &cidadeB);
-
-    printf("Digite a população: \n");
-    scanf("%d", &populacaoB);
-
-    printf("Digite quantos pontos turisticos a cidade tem: \n");
-    scanf("%d", &pTuristicosB);
-
-    // printf("Digite a area: \n");
-    // scanf("%f", &areaB);
-
-    // printf("Digite o PIB: \n");
-    // scanf("%f", &PIBB);
-
-    // densidadeB = populacaoA/areaB;
-    // perCaptaB = PIBA/populacaoB;
-    // superPoderB = (float)populacaoB + areaB + PIBB + (1/densidadeB) + (float)pTuristicosB + perCaptaB;
-
-
-    //PRINT CARTA A
-    // printf("%s - %s%d \n", nomeA, estadoA, cidadeA);
-    // printf("População: %d \n", populacaoA);
-    // printf("Área: %f \n", areaA);
-    // printf("PIB: %f \n", PIBA);
-    // printf("Pontos Turísticos: %d \n", pTuristicosA);
-    // printf("Densidade: %.2f \n", densidadeA);
-    // printf("Pib per Capta: %.2f \n", perCaptaA);
-    // printf("SUPER PODER: %.2f \n", superPoderA);
-
-    //PRINT CARTA B
-    // printf("%s - %s%d \n", nomeB, estadoB, cidadeB);
-    // printf("População: %d \n", populacaoB);
-    // printf("Área: %f \n", areaB);
-    // printf("PIB: %f \n", PIBB);
-    // printf("Pontos Turísticos: %d \n", pTuristicosB);
-    // printf("Densidade: %.2f \n", densidadeB);
-    // printf("Pib per Capta: %.2f \n", perCaptaB);
-    // printf("SUPER PODER: %.2f \n", superPoderB);
-
-    //COMPARANDO AS CARTAS:
-
-
-    // printf("Comparando carta A com a carta B: \n");
-    // resultado = populacaoA > populacaoB;
-    // printf("Populacao: %d\n", resultado);
-    // resultado = areaA > areaB;
-    // printf("Area: %d\n", resultado);
-    // resultado = PIBA > PIBB;
-    // printf("PIB: %d\n", resultado);
-    // resultado = pTuristicosA > pTuristicosB;
-    // printf("Pontos Turisticos: %d\n", resultado);
-    // resultado = densidadeA < densidadeB;
-    // printf("Densidade: %d\n", resultado);
-    // resultado = perCaptaA > perCaptaB;
-    // printf("PIB per Capta: %d\n", resultado);
-    // resultado = superPoderA > superPoderB;
-    // printf("Super Poder: %d\n", resultado);
-
-    //IMPLEMENTAÇÃO IF-ELSE:
-
-    // if (populacaoA > populacaoB) {
-    //     printf("A Populacao de %s é maior que a de %s.\n", nomeA, nomeB);
-    // } else {
-    //     printf("A populacao de %s é maior que a de %s. \n", nomeB, nomeA);
-    // }
+    //CARTA B
+    strcpy(nomeB, "Floripa");
+    strcpy(estadoB, "B");
+    populacaoB = 550000;
+    pTuristicosB = 45;
+    cidadeB = 02;
+    areaB = 125;
+    PIBB = 26000000000;
+    densidadeB = populacaoB/areaB;
+    perCaptaB = PIBB/populacaoB;
+    superPoderB = (float)populacaoB + areaB + PIBB + (1/densidadeB) + (float)pTuristicosB + perCaptaB;
 
     //COMPARAÇÃO DE CARTAS COM ESCOLHA DO ATRIBUTO VIA SWITCH CASE
-    printf("Escolha um atributo para comparar: \n");
+    printf("********** Escolha um atributo para comparar: ********** \n");
     printf("1. Populacao \n");
     printf("2. Pontos Turisticos \n");
-    printf("Escolha um atributo para comparar: %d", escolhaJogador);
-    scanf("%d", &escolhaJogador);
+    printf("3. Area \n");
+    printf("4. PIB \n");
+    printf("5. Densidade \n");
+    printf("6. PIB per Capta \n");
+    printf("7. Super Poder \n");
+    scanf("%d", &primeiroAttComp);
 
-    switch(escolhaJogador){
+    switch(primeiroAttComp){
         case 1:
-            if(populacaoA > populacaoB){
-                printf("*** A carta de %s venceu! ***\n", nomeA);
-            } else if(populacaoA < populacaoB){
-                printf("*** A carta de %s venceu! ***\n", nomeB);
-            } else {
-                printf("*** Houve um empate! ***\n");
-            }
-            break;
-        case 2:
-            if(pTuristicosA > pTuristicosB){
-                printf("*** A carta de %s venceu! ***\n", nomeA);
-            } else if(pTuristicosA < pTuristicosB){
-                printf("*** A carta de %s venceu! ***\n", nomeB);
-            } else {
-                printf("*** Houve um empate! ***\n");
-            }
-            break;
-        default:
-        printf("A opção escolhida é inválida.");
+        strcpy(primeiraEscolha, "População");
+        valor1A = populacaoA;
+        valor1B = populacaoB;
+        strcpy(vencedor1, populacaoA > populacaoB ? nomeA : (populacaoB > populacaoA ? nomeB : "Empate!"));
+        printf("********** Escolha mais uma opçao: ********** \n");
+        printf("2. Pontos Turisticos \n");
+        printf("3. Area \n");
+        printf("4. PIB \n");
+        printf("5. Densidade \n");
+        printf("6. PIB per Capta \n");
+        printf("7. Super Poder \n");
+        scanf("%d", &segundoAttComp);
         break;
-        
-    };
+        case 2:
+        strcpy(primeiraEscolha, "PontosTuristicos");
+        valor1A = pTuristicosA;
+        valor1B = pTuristicosB;
+        strcpy(vencedor1, pTuristicosA > pTuristicosB ? nomeA : (pTuristicosB > pTuristicosA ? nomeB : "Empate!"));
+        printf("*** Escolha mais uma opçao: *** \n");       
+        printf("1. Populacao \n");
+        printf("3. Area \n");
+        printf("4. PIB \n");
+        printf("5. Densidade \n");
+        printf("6. PIB per Capta \n");
+        printf("7. Super Poder \n");
+        scanf("%d", &segundoAttComp);
+        break;
+        case 3:
+        strcpy(primeiraEscolha, "Area");
+        valor1A = areaA;
+        valor1B = areaB;
+        strcpy(vencedor1, areaA > areaB ? nomeA : (areaB > areaA ? nomeB : "Empate!"));
+        printf("*** Escolha mais uma opçao: *** \n");       
+        printf("1. Populacao \n");
+        printf("2. Pontos Turisticos \n");
+        printf("4. PIB \n");
+        printf("5. Densidade \n");
+        printf("6. PIB per Capta \n");
+        printf("7. Super Poder \n");
+        scanf("%d", &segundoAttComp);
+        break;
+        case 4:
+        strcpy(primeiraEscolha, "PIB");
+        valor1A = PIBA;
+        valor1B = PIBB;
+        strcpy(vencedor1, PIBA > PIBB ? nomeA : (PIBB > PIBA ? nomeB : "Empate!"));
+        printf("*** Escolha mais uma opçao: *** \n");
+        printf("1. Populacao \n");
+        printf("2. Pontos Turisticos \n");
+        printf("3. Area \n");
+        printf("5. Densidade \n");
+        printf("6. PIB per Capta \n");
+        printf("7. Super Poder \n");
+        scanf("%d", &segundoAttComp);
+        break;
+        case 5:
+        strcpy(primeiraEscolha, "Densidade");
+        valor1A = densidadeA;
+        valor1B = densidadeB;
+        strcpy(vencedor1, densidadeA < densidadeB ? nomeA : (densidadeB < densidadeA ? nomeB : "Empate!"));
+        printf("*** Escolha mais uma opçao: *** \n");
+        printf("1. Populacao \n");
+        printf("2. Pontos Turisticos \n");
+        printf("3. Area \n");
+        printf("4. PIB \n");
+        printf("6. PIB per Capta \n");
+        printf("7. Super Poder \n");
+        scanf("%d", &segundoAttComp);
+        break;
+        case 6:
+        strcpy(primeiraEscolha, "PIBperCapta");
+        valor1A = perCaptaA;
+        valor1B = perCaptaB;
+        strcpy(vencedor1, perCaptaA > perCaptaB ? nomeA : (perCaptaB > perCaptaA ? nomeB : "Empate!"));
+        printf("*** Escolha mais uma opçao: *** \n");
+        printf("1. Populacao \n");
+        printf("2. Pontos Turisticos \n");
+        printf("3. Area \n");
+        printf("4. PIB \n");
+        printf("5. Densidade \n");
+        printf("7. Super Poder \n");
+        scanf("%d", &segundoAttComp);
+        break;
+        case 7:
+        strcpy(primeiraEscolha, "SuperPoder");
+        valor1A = superPoderA;
+        valor1B = superPoderB;
+        strcpy(vencedor1, superPoderA > superPoderB ? nomeA : (superPoderA > superPoderB ? nomeB : "Empate!"));
+        printf("*** Escolha mais uma opçao: *** \n");
+        printf("1. Populacao \n");
+        printf("2. Pontos Turisticos \n");
+        printf("3. Area \n");
+        printf("4. PIB \n");
+        printf("5. Densidade \n");
+        printf("6. PIB per Capta \n");
+        scanf("%d", &segundoAttComp);
+        break;
+        default:
+        printf("Opçao invalida!");
+    }
+    switch(segundoAttComp){
+        case 1:
+        strcpy(segundaEscolha, "População");
+        valor2A = populacaoA;
+        valor2B = populacaoB;
+        strcpy(vencedor2, populacaoA > populacaoB ? nomeA : (populacaoB > populacaoA ? nomeB : "Empate!"));
+        break;
+        case 2:
+        strcpy(segundaEscolha, "PontosTuristicos");
+        valor2A = pTuristicosA;
+        valor2B = pTuristicosB;
+        strcpy(vencedor2, pTuristicosA > pTuristicosB ? nomeA : (pTuristicosB > pTuristicosA ? nomeB : "Empate!"));
+        break;
+        case 3:
+        strcpy(segundaEscolha, "Area");
+        valor2A = areaA;
+        valor2B = areaB;
+        strcpy(vencedor2, areaA > areaB ? nomeA : (areaB > areaA ? nomeB : "Empate!"));
+        break;
+        case 4:
+        strcpy(segundaEscolha, "PIB");
+        valor2A = PIBA;
+        valor2B = PIBB;
+        strcpy(vencedor2, PIBA > PIBB ? nomeA : (PIBB > PIBA ? nomeB : "Empate!"));
+        break;
+        case 5:
+        strcpy(segundaEscolha, "Densidade");
+        valor2A = densidadeA;
+        valor2B = densidadeB;
+        strcpy(vencedor2, densidadeA < densidadeB ? nomeA : (densidadeB < densidadeA ? nomeB : "Empate!"));
+        break;
+        case 6:
+        strcpy(segundaEscolha, "PIBperCapta");
+        valor2A = perCaptaA;
+        valor2B = perCaptaB;
+        strcpy(vencedor2, perCaptaA > perCaptaB ? nomeA : (perCaptaB > perCaptaA ? nomeB : "Empate!"));
+        break;
+        case 7:
+        strcpy(segundaEscolha, "SuperPoder");
+        valor2A = superPoderA;
+        valor2B = superPoderB;
+        strcpy(vencedor2, superPoderA > superPoderB ? nomeA : (superPoderA > superPoderB ? nomeB : "Empate!"));
+        break;
+        default:
+        printf("Opção inválida! \n");
+        break;
+    }
+
+    resultadoA = valor1A + valor2A;
+    resultadoB = valor1B + valor2B;
 
 
+    strcpy(vencedorGeral, (resultadoA > resultadoB ? nomeA : (resultadoB > resultadoA ? nomeB : "Empate!")));
 
-
-
-
+    printf("A sua primeira escolha foi %s e o vencedor foi %s! \n", primeiraEscolha, vencedor1);
+    printf("A sua segunda escolha foi %s e o vencedor foi %s! \n", segundaEscolha, vencedor2);
+    printf("O vencedor geral foi %s no somatorio dos dois atributos escolhidos!", vencedorGeral);
 
     return 0;
 }
